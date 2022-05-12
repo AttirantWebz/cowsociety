@@ -1,0 +1,78 @@
+@import "login.scss";
+@import "home.scss";
+@import "buy.scss";
+@import "sell.scss";
+@import "map.scss";
+@import "negotiate.scss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.loader {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menu-header {
+  background-color: #333;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  z-index: 2;
+  & > * {
+    display: flex;
+    align-items: center;
+    & > * {
+      margin-left: 10px;
+    }
+  }
+
+  .menu-menu {
+    & > * {
+      width: 100px;
+      text-align: center;
+      border-radius: 4px;
+      padding: 4px;
+      transition: 0.5s;
+      &:hover {
+        color: #9b9b9b;
+      }
+    }
+  }
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
