@@ -7,29 +7,28 @@ import Link from "next/link";
 
 export default function Buy() {
   // const { value, dispatch } = useContext(Context);
-  const [images, setimages] = useState([])
+  const [images, setimages] = useState([]);
   useEffect(() => {
-      (async () => {
-        const data = await fetch(`/api/list`).then((res) =>
-          res.json()
-        );
-        if (data.success) {
-          setimages(data.lists)
-        }
-      })()
-
-  }, [])
+    (async () => {
+      const data = await fetch(`/api/list`).then((res) => res.json());
+      if (data.success) {
+        setimages(data.lists);
+      }
+    })();
+  }, []);
 
   return (
     <>
       <Grid container justifyContent="center" className="listprodect">
-        {images.length && images.map((a) => (
-          <Link key={a._id} href={`/buy/${a._id}`}>
-            <Grid item className="buy-list">
-              <Cards {...a} className="buy-card" />
-            </Grid>
-          </Link>
-        ))}
+        {images.length
+          ? images.map((a) => (
+              <Link key={a._id} href={`/buy/${a._id}`}>
+                <Grid item className="buy-list">
+                  <Cards {...a} className="buy-card" />
+                </Grid>
+              </Link>
+            ))
+          : ""}
       </Grid>
     </>
   );

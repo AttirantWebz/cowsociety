@@ -1,12 +1,19 @@
 .sell-container {
-  position: absolute;
   width: 100%;
   margin-top: 50px;
   background-image: url("/bg.jpg");
   background-size: cover;
   background-position: 80% 30%;
   min-height: 100vh;
+  position: relative;
   @include center;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.247);
+    position: absolute;
+  }
   form {
     backdrop-filter: blur(5px);
     padding: 20px 40px 10px 20px;
@@ -14,13 +21,13 @@
     margin-top: 20px;
     text-transform: capitalize;
     width: 500px;
-    box-shadow: 0 0 10px rgb(103, 25, 25);
+    box-shadow: 0 0 10px rgba(224, 224, 224, 0.226);
     color: white;
-    padding:20px;
+    padding: 20px;
     .page-handler {
       display: flex;
       justify-content: center;
-      & > * {
+      & > button {
         color: rgb(31, 31, 31);
         width: 50%;
         margin: 0 10px;
@@ -30,6 +37,12 @@
         font-size: 17px;
         font-weight: 700;
         background-color: rgba(255, 255, 255, 0.616);
+        transition: 0.3s;
+          cursor: pointer;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.669);
+            color: white;
+          }
       }
     }
     .active {
@@ -56,7 +69,7 @@
       .list-add-inc {
         margin-top: 10px;
       }
-      .upload{
+      .upload {
         margin-top: -50px;
       }
       .sell-input {
@@ -71,15 +84,21 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          &>*{
+          & > * {
             margin-left: 5px;
           }
         }
-        input[type=submit]{
+        input[type="submit"] {
           font-weight: 700;
           font-size: 18px;
           text-transform: capitalize;
+          transition: 0.5s;
           cursor: pointer;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.44);
+            backdrop-filter: blur(2px);
+            color: white;
+          }
         }
         input,
         textarea {
@@ -89,9 +108,10 @@
           padding: 10px;
           border-radius: 5px;
           background-color: transparent;
-          color: rgb(50, 50, 50);
+          color: rgb(0, 0, 0);
           background-color: rgba(240, 248, 255, 0.444);
-          font-weight: 600;
+          font-weight: 700;
+          font-size: 19px;
         }
         textarea {
           height: 150px;
